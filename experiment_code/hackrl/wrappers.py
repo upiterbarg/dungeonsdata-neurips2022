@@ -39,10 +39,9 @@ from numba import njit
 
 import render_utils
 
-
 base_path = str(pathlib.Path().resolve())
-DD_PATH = os.path.join(base_path[:base_path.find('dungeonsdata-neurips2022')], 'dungeonsdata-neurips2022')
-SMALL_FONT_PATH = os.path.join(DD_PATH, 'experiment_code', "Hack-Regular.ttf")
+DD_PATH = base_path[:base_path.find('dungeonsdata-neurips2022')] if 'dungeonsdata-neurips2022' in base_path else base_path
+SMALL_FONT_PATH = os.path.join(DD_PATH, 'dungeonsdata-neurips2022', 'experiment_code', "Hack-Regular.ttf")
 
 # Mapping of 0-15 colors used.
 # Taken from bottom image here. It seems about right
