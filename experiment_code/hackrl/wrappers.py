@@ -25,20 +25,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import os
-
 import cv2
 import gym
 import numpy as np
-from numba import njit
-from nle import nethack
+import os
+import pathlib
+
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+from nle import nethack
+from numba import njit
 
 import render_utils
 
-SMALL_FONT_PATH = os.path.abspath("Hack-Regular.ttf")
+
+base_path = str(pathlib.Path().resolve())
+DD_PATH = os.path.join(base_path[:base_path.find('dungeonsdata-neurips2022')], 'dungeonsdata-neurips2022')
+SMALL_FONT_PATH = os.path.join(DD_PATH, 'experiment_code', "Hack-Regular.ttf")
 
 # Mapping of 0-15 colors used.
 # Taken from bottom image here. It seems about right
